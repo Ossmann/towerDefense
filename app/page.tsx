@@ -18,27 +18,39 @@ export default async function Home() {
       </div>
 
       {/* Intro */}
-      <section id="home" className="h-screen flex flex-col justify-center space-y-10 w-full items-center text-center">
-        <h1 className="text-3xl md:text-6xl font-bold mb-4">Real-time Software Development</h1>
-        <div className="space-y-0 w-3/4">
-          <p>Customised applications tailored to your needs.</p>
-          <p>Others sell agile. We live it.</p>
+      <section id="home" className="h-screen flex flex-col justify-center space-y-6 w-full items-center text-center">
+        <h1 className="text-3xl md:text-6xl font-bold mb-2">Real-time Software Development</h1>
+        <p className='-mt-2'>Customised applications tailored to your needs.</p>
+        <div className="flex items-center justify-center -space-x-12">
+          <div className='agile-bolt'>
+            <p>Others sell agile</p>
+          </div>
+          <div className='agile-bolt-inverse'>
+            <p>We live it</p>
+          </div>
         </div>
-        <div className="flex space-x-4 items-center justify-center">
-          <p>real-time development</p>
-          <p>rapid prototyping</p>
-          <p>fully customised</p>
-          <p>Made in Australia 🇦🇺</p>
+        <div className="flex space-x-8 items-center justify-center">
+          <div className="flex flex-col items-center">
+            <p className='text-4xl mb-2'>⏱️</p>
+            <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">real-time development</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className='text-4xl mb-2'>🧪</p>
+            <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">rapid prototyping</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className='text-4xl mb-2'>🖌</p>
+            <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">fully customised</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className='text-4xl mb-2'>🇦🇺</p>
+            <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">made in Australia</p>
+          </div>
         </div>
         <div className="flex gap-5">
-          <a href="mailto:Jakobossmann@gmail.com">
+          <a href="mailto:office@softwaresuccess.com.au">
             <button className="flex items-center justify-center rounded-full px-4 py-2 hover:scale-105 bg-black text-white hover:bg-blue-800">
               Get in touch
-            </button>
-          </a>
-          <a href="/CV_Jakob_Ossmann.pdf" download target="_blank" rel="noopener noreferrer">
-            <button className="flex items-center justify-center rounded-full px-4 py-2 hover:scale-105 bg-gray-300 text-white hover:bg-blue-800">
-              Download resume
             </button>
           </a>
         </div>

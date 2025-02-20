@@ -14,8 +14,8 @@ export default function Navbar() {
     <div>
       <div className='flex justify-between p-4 bg-white border font-light text-sm px-20'>
         <div className='justify-start pl-2'>
-          <div>Jakob Ossmann</div>
-          <div className='text-xs lowercase font-mono mt-1'>fullstack developer</div>
+          <div>Software Success</div>
+          <div className='text-xs lowercase font-mono mt-1'>Customised solutions</div>
         </div>
 
         <div className='flex items-center'>
