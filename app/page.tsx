@@ -1,4 +1,4 @@
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import GetInTouch from './components/GetInTouch';
 import {
   ChevronDownIcon
@@ -20,7 +20,7 @@ export default async function Home() {
       <section id="home" className="min-h-screen flex flex-col justify-center space-y-8 md:space-y-12 w-full items-center text-center px-4 py-20 md:py-0">
         <h1 className="text-3xl md:text-6xl font-bold mb-2">Real-Time Software Development</h1>
           <p className='max-w-2xl'>We leverage the latest technologies to built customised applications in real-time together with you.</p>
-          <div className="hidden md:block flex items-center justify-center -space-x-12 flex-wrap">
+          <div className="hidden md:flex items-center justify-center -space-x-12 flex-wrap">
             <div className='agile-bolt font-bold'>
               <p>Others sell agile</p>
             </div>
