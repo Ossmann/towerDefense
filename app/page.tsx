@@ -3,8 +3,8 @@ import GetInTouch from './components/GetInTouch';
 import {
   ChevronDownIcon
 } from '@heroicons/react/24/solid';
-import { FaGithub, FaYoutube } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+// import { FaGithub, FaYoutube } from "react-icons/fa";
+// import { FiExternalLink } from "react-icons/fi";
 
 
 export default async function Home() {
