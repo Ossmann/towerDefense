@@ -37,7 +37,7 @@ export default function RootLayout({
             <p className='hover:underline'>
               <a href="mailto:Jakobossmann@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
             </p>
-            <p className='hover:underline'>
+            {/* <p className='hover:underline'>
               <a href="https://www.youtube.com/@jakobossmann2323" target="_blank">Youtube</a>
             </p>
             <p className='hover:underline'>
@@ -45,7 +45,7 @@ export default function RootLayout({
             </p>
             <p className='hover:underline'>
               <a href="https://www.linkedin.com/in/jakobossmann/" target="_blank">Linkedin</a>
-            </p>
+            </p> */}
           </div>
         </footer>
 

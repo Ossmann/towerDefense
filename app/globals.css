@@ -23,7 +23,6 @@ body {
 .agile-bolt{
   background-color: gray;
   padding: 10px;
-  margin-right: 10px;
   clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
 }
 
