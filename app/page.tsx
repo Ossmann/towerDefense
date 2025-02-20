@@ -1,5 +1,5 @@
-import Navbar from '@/app/components/Navbar';
-import GetInTouch from '@/app/components/GetInTouch';
+import Navbar from './components/navbar';
+import GetInTouch from './components/GetInTouch';
 import {
   ChevronDownIcon
 } from '@heroicons/react/24/solid';
