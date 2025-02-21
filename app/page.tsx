@@ -1,10 +1,10 @@
-import Navbar from './components/Navbar';
+import Navbar from '@/app/components/Navbar';
 import {
   ChevronDownIcon
 } from '@heroicons/react/24/solid';
 // import { FaGithub, FaYoutube } from "react-icons/fa";
 // import { FiExternalLink } from "react-icons/fi";
-
+import portfolioData from './data/portfolio.json';
 
 export default async function Home() {
 
@@ -22,10 +22,10 @@ export default async function Home() {
           <p className='max-w-2xl'>We leverage the latest technologies to built customised applications in real-time together with you.</p>
           <div className="hidden md:flex items-center justify-center -space-x-12 flex-wrap">
             <div className='agile-bolt font-bold'>
-              <p>Others sell agile</p>
+              <p className='-ml-12'>Others sell agile</p>
             </div>
             <div className='agile-bolt-inverse font-bold'>
-              <p>We live it</p>
+              <p className='-mr-8'>We live it</p>
             </div>
           </div>
           <div className="flex space-x-8 items-center justify-center flex-wrap gap-y-6">
@@ -46,58 +46,38 @@ export default async function Home() {
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">made in Australia</p>
             </div>
           </div>
-          <a href="#portfolio" className='pt-10'>
+          <a href="#Portfolio" className='pt-10'>
             <ChevronDownIcon className="h-16 w-16 text-black animate-bounce " />
           </a>
         
       </section>
       </div>
 
-      {/* About Section */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2">
-            <img 
-              src="/your-image.jpg" 
-              alt="Description of image"
-              className="rounded-lg w-full h-auto object-cover shadow-xl"
-            />
+      {/* Dynamic Portfolio Sections */}
+      {portfolioData.projects.map((project, index) => (
+        <section 
+          key={project.id} 
+          id={'Portfolio'} 
+          className={`${index % 2 === 0 ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} py-20`}
+        >
+          <div className={`container mx-auto px-4 flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
+            <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'bg-gray-900' : 'bg-white'}`}>
+              <img 
+                src={project.image}
+                alt={project.imageAlt}
+                className="rounded-lg w-full max-h-[400px] object-contain shadow-xl"
+              />
+            </div>
+            <div className="w-full md:w-1/2 space-y-6">
+              <h2 className="text-4xl font-bold">{project.title}</h2>
+              <div className={`${index % 2 === 0 ? 'text-gray-300' : ''} text-lg space-y-4`}>
+                <p>{project.description1}</p>
+                <p>{project.description2}</p>
+              </div>
+            </div>
           </div>
-          <div className="w-full md:w-1/2 space-y-6">
-            <h2 className="text-4xl font-bold">Your Heading Here</h2>
-            <p className="text-gray-300 text-lg">
-              Your main text content goes here. Add a compelling description about your services,
-              company, or whatever you'd like to highlight in this section.
-            </p>
-            <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-              Call to Action
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Second About Section */}
-      <section className="bg-white text-gray-900 py-20">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-12">
-          <div className="w-full md:w-1/2">
-            <img 
-              src="/your-second-image.jpg" 
-              alt="Description of second image"
-              className="rounded-lg w-full h-auto object-cover shadow-xl"
-            />
-          </div>
-          <div className="w-full md:w-1/2 space-y-6">
-            <h2 className="text-4xl font-bold">Second Heading Here</h2>
-            <p className="text-lg">
-              Your second section content goes here. This can highlight another aspect of your services
-              or provide additional information about your company.
-            </p>
-            <button className="bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-              Another Action
-            </button>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* Empty bottom space */}
       <div className='p-16'></div>
