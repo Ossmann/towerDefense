@@ -1,4 +1,4 @@
-import Navbar from '../app/components/Topbar';
+import Navbar from './components/Topbar';
 import {
   ChevronDownIcon
 } from '@heroicons/react/24/solid';
