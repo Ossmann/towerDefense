@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import GetInTouch from './GetInTouch';
 
-export default function Navbar() {
+export default function Topbar() {
   const pathname = usePathname();
   const links = [
     { href: '/about', label: 'About', name: '/about' },
