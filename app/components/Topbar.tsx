@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import GetInTouch from './GetInTouch';
+import GetInTouch from './Contactbutton';
 
 export default function Topbar() {
   const pathname = usePathname();
