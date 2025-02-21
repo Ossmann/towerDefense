@@ -10,11 +10,12 @@ export default async function Home() {
 
   return (
     <div className='relative h-screen'>
-      <div className='sm:p-20'>
+      
       <div className='hidden md:block fixed top-0 left-0 right-0 z-20'>
         <Navbar />
       </div>
 
+      <div className='sm:p-20'>
       {/* Intro */}
       <section id="home" className="min-h-screen flex flex-col justify-center space-y-8 md:space-y-12 w-full items-center text-center px-4 py-20 md:py-0">
         <h1 className="text-3xl md:text-6xl font-bold mb-2">Real-Time Software Development</h1>
@@ -50,10 +51,56 @@ export default async function Home() {
           </a>
         
       </section>
+      </div>
+
+      {/* About Section */}
+      <section className="bg-gray-900 text-white py-20">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+          <div className="w-full md:w-1/2">
+            <img 
+              src="/your-image.jpg" 
+              alt="Description of image"
+              className="rounded-lg w-full h-auto object-cover shadow-xl"
+            />
+          </div>
+          <div className="w-full md:w-1/2 space-y-6">
+            <h2 className="text-4xl font-bold">Your Heading Here</h2>
+            <p className="text-gray-300 text-lg">
+              Your main text content goes here. Add a compelling description about your services,
+              company, or whatever you'd like to highlight in this section.
+            </p>
+            <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              Call to Action
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Second About Section */}
+      <section className="bg-white text-gray-900 py-20">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-12">
+          <div className="w-full md:w-1/2">
+            <img 
+              src="/your-second-image.jpg" 
+              alt="Description of second image"
+              className="rounded-lg w-full h-auto object-cover shadow-xl"
+            />
+          </div>
+          <div className="w-full md:w-1/2 space-y-6">
+            <h2 className="text-4xl font-bold">Second Heading Here</h2>
+            <p className="text-lg">
+              Your second section content goes here. This can highlight another aspect of your services
+              or provide additional information about your company.
+            </p>
+            <button className="bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+              Another Action
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* Empty bottom space */}
       <div className='p-16'></div>
-    </div>
     </div>
   );
 }
