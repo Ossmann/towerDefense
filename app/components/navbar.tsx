@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import GetInTouch from '../components/GetInTouch';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -18,7 +19,8 @@ export default function Navbar() {
         </div>
 
         <div className='flex items-center'>
-          <div className='flex space-x-4'>
+          <div className='flex space-x-4 items-center'>
+            <GetInTouch />
             {links.map((link, index) => (
               <div className='px-4 hover:underline whitespace-nowrap' key={index}>
                 <Link className={`link ${pathname === link.name ? 'font-semibold' : ''}`} href={link.href}>

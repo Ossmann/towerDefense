@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar';
-import GetInTouch from './components/GetInTouch';
 import {
   ChevronDownIcon
 } from '@heroicons/react/24/solid';
@@ -45,9 +44,6 @@ export default async function Home() {
               <p className='text-4xl mb-2'>🇦🇺</p>
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">made in Australia</p>
             </div>
-          </div>
-          <div className="flex gap-5">
-            <GetInTouch />
           </div>
           <a href="#portfolio" className='pt-10'>
             <ChevronDownIcon className="h-16 w-16 text-black animate-bounce " />
