@@ -4,13 +4,13 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
@@ -20,24 +20,37 @@ body {
 }
 
 .section-intro {
-  background-image: linear-gradient(
-    to top right,
-    #003bd6 20%,
-    #86A8E7 50%,
-    #5FFBF1 80%
-  );
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 14s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .agile-bolt{
-  background-color: gray;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   padding: 10px;
   clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
 }
 
 .agile-bolt-inverse{
-  background-color: #aeeaff;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   padding: 10px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 28% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
 }
 
 .agile-bolt, .agile-bolt-inverse {
@@ -46,14 +59,12 @@ body {
 }
 
 .glass-morph {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   padding: 20px;
 }
 
-.glass-morph-box {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 16px;
+
+.glass-morph-lottiebox:hover {
+  transform: scale(1.1); /* Increase size by 10% on hover */
 }

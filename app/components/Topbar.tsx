@@ -7,12 +7,13 @@ import GetInTouch from './Contactbutton';
 export default function Topbar() {
   const pathname = usePathname();
   const links = [
+    { href: '/works', label: 'How it works', name: '/works' },
     { href: '/about', label: 'About', name: '/about' },
   ];
 
   return (
     <div>
-      <div className='flex justify-between p-4 border font-light text-sm px-20 glass-morph'>
+      <div className='flex justify-between p-4 border px-20 glass-morph'>
         <div className='justify-start pl-2'>
           <div>Software Success</div>
           <div className='text-xs lowercase mt-1 italic'>Customised solutions</div>
