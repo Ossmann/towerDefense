@@ -16,8 +16,18 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(
+    to right top,
+    #aeeaff 0%,
+    #334a52 5%,
+    #334a52 25%,
+    #aeeaff  27%,
+    #ffffff 28%,
+    #aeeaff  50%,
+    #aeeaff  70%,
+    #ffffff 71%,
+    #eafaff 100%
+  );  font-family: Arial, Helvetica, sans-serif;
 }
 
 .agile-bolt{
