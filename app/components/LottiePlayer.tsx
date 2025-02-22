@@ -1,53 +1,33 @@
 'use client'
 
-import lottie from 'lottie-web';
-import { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import Lottie from 'lottie-react';
 
 interface LottiePlayerProps {
-  path: string;
-  playOnHover?: boolean;
+  animationData: object;
+  loop?: boolean;
+  autoplay?: boolean;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-export default function LottiePlayer({ path = '/Lottie_AI_orb.json', playOnHover = false }: LottiePlayerProps) {
-  const animationContainer = useRef<HTMLDivElement | null>(null);
-  const [animation, setAnimation] = useState<any>(null);
-
-  useEffect(() => {
-    if (animationContainer.current) {
-      const anim = lottie.loadAnimation({
-        container: animationContainer.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: !playOnHover,
-        path: path,
-      });
-
-      setAnimation(anim);
-
-      return () => {
-        anim.destroy();
-      };
-    }
-  }, [path, playOnHover]);
-
-  const handleMouseEnter = () => {
-    if (playOnHover && animation) {
-      animation.play();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (playOnHover && animation) {
-      animation.pause();
-    }
-  };
-
+const LottiePlayer: React.FC<LottiePlayerProps> = ({ 
+  animationData, 
+  loop = true, 
+  autoplay = true, 
+  style,
+  className 
+}) => {
   return (
-    <div 
-      ref={animationContainer}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <Lottie 
+      animationData={animationData}
+      loop={loop}
+      autoplay={autoplay}
+      style={style}
+      className={className}
     />
   );
-}
+};
+
+export default LottiePlayer;
 

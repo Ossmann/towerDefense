@@ -1,9 +1,4 @@
 import Navbar from './components/Topbar';
-import {
-  ChevronDownIcon
-} from '@heroicons/react/24/solid';
-// import { FaGithub, FaYoutube } from "react-icons/fa";
-// import { FiExternalLink } from "react-icons/fi";
 import portfolioData from './data/portfolio.json';
 import IntroSection from './components/IntroSection';
 import PortfolioSection from './components/PortfolioSection';

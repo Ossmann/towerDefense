@@ -1,5 +1,3 @@
-import { projects } from '../data/portfolio.json';
-
 interface Project {
   id: number;
   title: string;

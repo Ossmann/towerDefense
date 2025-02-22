@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "lottie-react": "^2.4.1",
     "lottie-web": "^5.12.2",
     "next": "15.1.7",
     "react": "^19.0.0",
