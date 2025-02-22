@@ -15,7 +15,7 @@ export default async function Home() {
         <Navbar />
       </div>
 
-      <div className='sm:p-20'>
+      <div className='sm:p-20 section-intro'>
       {/* Intro */}
       <section id="home" className="min-h-screen flex flex-col justify-center space-y-8 md:space-y-12 w-full items-center text-center px-4 py-20 md:py-0">
         <h1 className="text-3xl md:text-6xl font-bold mb-2">Real-Time Software Development</h1>
@@ -29,19 +29,19 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex space-x-8 items-center justify-center flex-wrap gap-y-6">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center glass-morph-box p-4">
               <p className='text-4xl mb-2'>⏱️</p>
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">real-time development</p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center glass-morph-box p-4">
               <p className='text-4xl mb-2'>🧪</p>
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">rapid prototyping</p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center glass-morph-box p-4">
               <p className='text-4xl mb-2'>🖌</p>
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">fully customised</p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center glass-morph-box p-4">
               <p className='text-4xl mb-2'>🇦🇺</p>
               <p className="font-medium text-gray-800 text-sm uppercase tracking-wider">made in Australia</p>
             </div>

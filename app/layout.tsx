@@ -31,8 +31,8 @@ export default function RootLayout({
         </div>
 
         {/* Sticky Footer */}
-        <footer className="fixed bottom-0 left-0 w-full bg-white bg-opacity-75 py-4 z-20">
-          <div className="container mx-auto px-4 mt flex space-x-4 pt-4 font-semibold">
+        <footer className="fixed bottom-0 left-0 w-full py-3 z-20">
+          <div className="container mx-auto px-4 flex space-x-4 p-2 font-semibold">
             <p className='hover:underline'>
               <a href="mailto:Jakobossmann@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
             </p>

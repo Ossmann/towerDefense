@@ -12,7 +12,7 @@ export default function Topbar() {
 
   return (
     <div>
-      <div className='flex justify-between p-4 bg-white border font-light text-sm px-20'>
+      <div className='flex justify-between p-4 border font-light text-sm px-20 glass-morph'>
         <div className='justify-start pl-2'>
           <div>Software Success</div>
           <div className='text-xs lowercase mt-1 italic'>Customised solutions</div>

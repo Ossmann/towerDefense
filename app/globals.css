@@ -16,18 +16,16 @@
 
 body {
   color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.section-intro {
   background-image: linear-gradient(
-    to right top,
-    #aeeaff 0%,
-    #334a52 5%,
-    #334a52 25%,
-    #aeeaff  27%,
-    #ffffff 28%,
-    #aeeaff  50%,
-    #aeeaff  70%,
-    #ffffff 71%,
-    #eafaff 100%
-  );  font-family: Arial, Helvetica, sans-serif;
+    to top right,
+    #003bd6 20%,
+    #86A8E7 50%,
+    #5FFBF1 80%
+  );
 }
 
 .agile-bolt{
@@ -45,4 +43,17 @@ body {
 .agile-bolt, .agile-bolt-inverse {
   min-width: 280px;  /* or whatever width matches your design */
   text-align: center;
+}
+
+.glass-morph {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+}
+
+.glass-morph-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 16px;
 }
