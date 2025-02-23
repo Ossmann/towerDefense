@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div className='relative h-screen'>
       
-      <div className='hidden md:block fixed top-0 left-0 right-0 z-20'>
+      <div className='hidden sm:mb-200 md:block fixed top-0 left-0 right-0 z-20'>
         <Navbar />
       </div>
 
@@ -17,7 +17,7 @@ export default async function Home() {
         <MobileNav />
       </div>
 
-      <div className='sm:p-20 pt-12 md:pt-0 section-intro'>
+      <div className=' pt-12 md:pt-20 section-intro'>
         <IntroSection />
       </div>
 
@@ -27,7 +27,7 @@ export default async function Home() {
       ))}
 
       {/* Empty bottom space */}
-      <div className='p-16'></div>
+      <div className='p-8'></div>
     </div>
   );
 }

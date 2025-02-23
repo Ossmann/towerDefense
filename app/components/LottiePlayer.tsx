@@ -26,7 +26,7 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
     let lottie: typeof import('lottie-web')['default'];
     import('lottie-web').then((L) => {
       lottie = L.default;
-      if (container.current) {
+      if (container.current && !anim.current) {
         anim.current = lottie.loadAnimation({
           container: container.current,
           renderer: 'svg',
