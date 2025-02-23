@@ -15,7 +15,7 @@ export default function Topbar() {
     <div>
       <div className='flex justify-between p-4 border px-20 glass-morph'>
         <div className='justify-start pl-2'>
-          <div>Software Success</div>
+        <Link href="/" className=''>Software Success</Link>
           <div className='text-xs lowercase mt-1 italic'>Customised solutions</div>
         </div>
 

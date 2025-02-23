@@ -1,10 +1,15 @@
 import Navbar from '../components/Topbar';
+import MobileNav from '../components/MobileNav';
 
 export default function AboutPage() {
   return (
-    <div className="mx-20 mx-auto py-12 pl-4 pr-80">
+    <div className="md:mx-20 mx-6 mdmx-auto py-12 pl-4 md:pr-80 text-black">
       <div className='hidden md:block fixed top-0 left-0 right-0 z-20'>
         <Navbar />
+      </div>
+
+      <div className='block md:hidden fixed top-0 left-0 right-0 z-20'>
+        <MobileNav />
       </div>
       <div className="mt-20 space-y-8">
         <h1 className="text-3xl font-bold mb-8">About Us</h1>
