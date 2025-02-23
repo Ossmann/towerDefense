@@ -20,10 +20,10 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
   playOnHover 
 }) => {
   const container = useRef<HTMLDivElement>(null);
-  const anim = useRef<any>(null);
+  const anim = useRef<ReturnType<typeof import('lottie-web')['default']['loadAnimation']>>(null);
 
   useEffect(() => {
-    let lottie: any;
+    let lottie: typeof import('lottie-web')['default'];
     import('lottie-web').then((L) => {
       lottie = L.default;
       if (container.current) {
@@ -31,16 +31,36 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
           container: container.current,
           renderer: 'svg',
           loop,
-          autoplay,
+          autoplay: playOnHover ? false : autoplay,
           path
         });
       }
     });
 
     return () => anim.current?.destroy();
-  }, [path, loop, autoplay]);
+  }, [path, loop, autoplay, playOnHover]);
 
-  return <div ref={container} style={style} className={className} />;
+  const handleMouseEnter = () => {
+    if (playOnHover && anim.current) {
+      anim.current.play();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (playOnHover && anim.current) {
+      anim.current.stop();
+    }
+  };
+
+  return (
+    <div 
+      ref={container} 
+      style={style} 
+      className={className}
+      onMouseEnter={playOnHover ? handleMouseEnter : undefined}
+      onMouseLeave={playOnHover ? handleMouseLeave : undefined}
+    />
+  );
 };
 
 export default LottiePlayer;
