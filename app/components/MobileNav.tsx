@@ -10,7 +10,7 @@ const MobileNav = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const links = [
-    { href: '/works', label: 'How it works', name: '/works' },
+    { href: '/how', label: 'How it works', name: '/how' },
     { href: '/about', label: 'About', name: '/about' },
   ];
 
