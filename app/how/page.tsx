@@ -1,12 +1,19 @@
-import Progressbar from '../components/Progressbar/Progressbar';
+import ProgressbarOld from '../components/Progressbar/ProgressbarOld';
+import ProgressbarNew from '../components/Progressbar/ProgressbarNew';
 import Topbar from '../components/Topbar';
 import Footer from '../components/MobileNav';
 
 export default function How() {
     return (
-    <div>
+    <div className='text-black'>
         <Topbar />
-        <Progressbar />
+        
+        <div className='mx-20 p-20 text-center'>
+            <ProgressbarOld />
+        </div>
+        <div className='mx-20 p-20 text-center'>
+            <ProgressbarNew />
+        </div>
     </div>
     );
   }
