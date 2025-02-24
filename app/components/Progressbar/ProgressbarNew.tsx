@@ -25,8 +25,8 @@ export default function ProgressbarNew() {
       <div className='text-2xl'>Software Projects Now </div>
       <div className="progress-container">
         <ul className='progress-bar-new'>
-          <li className={activeStep >= 1 ? 'active' : ''}>1. Meeting</li>
-          <li className={activeStep >= 2 ? 'active' : ''}>2. Dev</li>
+          <li className={activeStep >= 1 ? 'active' : ''}>1. Meeting to understand your vision</li>
+          <li className={activeStep >= 2 ? 'active' : ''}>2. Live virtual interactive coding session</li>
         </ul>
       </div>
     </div>
