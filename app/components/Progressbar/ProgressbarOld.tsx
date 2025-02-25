@@ -1,8 +1,13 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import '../Progressbar/ProgressbarAppear.css';
-import { FaBeer } from 'react-icons/fa'
+import '../Progressbar/Progressbar.css';
+import { FaPeopleGroup } from 'react-icons/fa6';
+import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
+import { GiPencilBrush } from "react-icons/gi";
+import { FaLaptopCode } from "react-icons/fa";
+import { RiTestTubeFill } from "react-icons/ri";
+import { TfiFaceSad } from "react-icons/tfi";
 
 
 export default function Progressbar() {
@@ -24,23 +29,101 @@ export default function Progressbar() {
 
   return (
     <div>
-      <div className='text-2xl'>Software Projects before </div>
+      <div className='text-2xl'>Software Projects Before </div>
       <div className="progress-container">
         <ul className='progress-bar'>
           <li className={activeStep >= 1 ? 'active' : ''}>
-            1. Meeting
+            1. 
+            <div className="floating-element">
+              Meeting
+              <div className="icon-container">
+                <FaPeopleGroup />
+              </div>
+            </div>
           </li>
-          <li className={activeStep >= 2 ? 'active' : ''}>2. Requirement Definition</li>
-          <li className={activeStep >= 3 ? 'active' : ''}>3. Design</li>
-          <li className={activeStep >= 4 ? 'active' : ''}>4. Review Meeting</li>
-          <li className={activeStep >= 5 ? 'active' : ''}>5. Coding Session I</li>
-          <li className={activeStep >= 6 ? 'active' : ''}>6. Testing</li>
-          <li className={activeStep >= 7 ? 'active' : ''}>7. Coding Session II</li>
-          <li className={activeStep >= 8 ? 'active' : ''}>8. Testing</li>
-          <li className={activeStep >= 9 ? 'active' : ''}>9. Coding Session III</li>
-          <li className={activeStep >= 10 ? 'active' : ''}>10. Unsatisfying Solution</li>
+          <li className={activeStep >= 2 ? 'active' : ''}>
+            2. 
+            <div className="floating-element">
+              Requirement Definition
+              <div className="icon-container">
+                <HiOutlineClipboardDocumentList />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 3 ? 'active' : ''}>
+            3. 
+            <div className="floating-element">
+              Design
+              <div className="icon-container">
+                <GiPencilBrush />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 4 ? 'active' : ''}>
+            4. 
+            <div className="floating-element">
+              Review Meeting
+              <div className="icon-container">
+                <FaPeopleGroup />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 5 ? 'active' : ''}>
+            5. 
+            <div className="floating-element">
+              Coding Session I
+              <div className="icon-container">
+                <FaLaptopCode />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 6 ? 'active' : ''}>
+            6. 
+            <div className="floating-element">
+              Testing
+              <div className="icon-container">
+                <RiTestTubeFill />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 7 ? 'active' : ''}>
+            7. 
+            <div className="floating-element">
+              Coding Session II
+              <div className="icon-container">
+                <FaLaptopCode />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 8 ? 'active' : ''}>
+            8. 
+            <div className="floating-element">
+              Testing
+              <div className="icon-container">
+                <RiTestTubeFill />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 9 ? 'active' : ''}>
+            9. 
+            <div className="floating-element">
+              Coding Session III
+              <div className="icon-container">
+                <FaLaptopCode />
+              </div>
+            </div>
+          </li>
+          <li className={activeStep >= 10 ? 'active' : ''}>
+            10. 
+            <div className="floating-element">
+              Unsatisfying Solution
+              <div className="icon-container">
+                <TfiFaceSad />
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
-  );
+  );  
 }

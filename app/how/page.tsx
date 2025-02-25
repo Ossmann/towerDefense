@@ -8,10 +8,10 @@ export default function How() {
     <div className='text-black'>
         <Topbar />
         
-        <div className='mx-20 p-20 text-center'>
+        <div className='mx-20 pt-20 text-center'>
             <ProgressbarOld />
         </div>
-        <div className='mx-20 p-20 text-center'>
+        <div className='mx-20 text-center'>
             <ProgressbarNew />
         </div>
     </div>

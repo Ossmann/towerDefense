@@ -52,6 +52,27 @@
     z-index: 20;
 }
 
+/* text above the arrow */
+.floating-element {
+    position: absolute;
+    color: black;
+    top: -80px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    z-index: 30; /* Higher than the arrow's z-index */
+}
+
+/* Icon above the arrow */
+.icon-container {
+    position: absolute;
+    font-size: 24px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+}
+
 @keyframes turnRed {
     from { background-color: #333; }
     to { background-color: rgb(96, 12, 12); }
@@ -118,6 +139,17 @@ New Progress
     top: 0;
     left: 100%;
     z-index: 20;
+}
+
+/* floating container for the lottie */
+.floating-lottie-container {
+    position: absolute;
+    color: black;
+    top: -180px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    z-index: 30; /* Higher than the arrow's z-index */
 }
 
 @keyframes turnGreen {
