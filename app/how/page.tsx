@@ -21,7 +21,7 @@ export default function How() {
         {/* <div className='block md:hidden'>
             <ProgressbarOldMobile />
         </div> */}
-        <div className='hidden md:block mx-48 text-center'>
+        <div className='hidden md:block mx-44 text-center'>
             <ProgressbarNew />
         </div>
         <div className='block md:hidden mx-12 mt-32 text-center'>
