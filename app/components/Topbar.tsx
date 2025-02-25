@@ -24,7 +24,7 @@ export default function Topbar() {
             <GetInTouch />
             {links.map((link, index) => (
               <div className='px-4 hover:underline whitespace-nowrap' key={index}>
-                <Link className={`link ${pathname === link.name ? 'font-semibold' : ''}`} href={link.href}>
+                <Link className={`link ${pathname === link.name ? 'underline' : ''}`} href={link.href}>
                   {link.label}
                 </Link>
               </div>
