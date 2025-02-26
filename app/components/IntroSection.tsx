@@ -7,10 +7,10 @@ export default function IntroSection() {
       <h1 className="text-3xl md:text-6xl font-bold mb-2">Real-Time Software Development</h1>
       <p className='max-w-2xl text-xl'>We leverage the latest technologies to built customised applications in real-time together with you, while saving costs.</p>
       <div className="hidden md:flex items-center justify-center -space-x-12 flex-wrap">
-        <div className='agile-bolt shadow-[inset_0_-1px_4px_rgba(0,0,0,0.6)]'>
+        <div className='agile-bolt '>
           <p className='-ml-12'>Others sell agile</p>
         </div>
-        <div className='agile-bolt-inverse shadow-[inset_0_1px_4px_rgba(0,0,0,0.6)]'>
+        <div className='agile-bolt-inverse'>
           <p className='-mr-8'>We live it</p>
         </div>
       </div>
