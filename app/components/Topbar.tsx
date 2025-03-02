@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import GetInTouch from './Contactbutton';
+import Logo from '../../public/SoftwareSuccess_Logo_No_Claim.svg'
+import Image from 'next/image';
 
 export default function Topbar() {
   const pathname = usePathname();
@@ -15,8 +17,13 @@ export default function Topbar() {
     <div>
       <div className='flex justify-between p-4 border-b px-20 glass-morph'>
         <div className='justify-start pl-2'>
-        <Link href="/" className=''>Software Success</Link>
-          <div className='text-xs lowercase mt-1 italic'>Customised solutions</div>
+        <Link href="/" className='flex items-center'>
+          <Image src={Logo} alt='Software Success Logo' className='w-10 mr-4' />
+          <div>
+            <div>Software Success</div>
+            <div className='text-xs lowercase mt-1 italic'>Customised solutions</div>
+          </div>
+        </Link>
         </div>
 
         <div className='flex items-center'>
