@@ -4,6 +4,7 @@ import "./globals.css";
 import Head from "next/head";
 import CustomCursor from './components/CustomCursor';
 import Script from 'next/script';
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <Head>
         <link rel="icon" href="/favicon.svg" />
+        <GoogleAnalytics />
       </Head>
       <body className={`${inter.className} relative h-screen`}>
 
