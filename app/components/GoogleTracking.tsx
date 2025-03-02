@@ -20,7 +20,7 @@ const GoogleTracking = () => {
 
       {/* Google Adds */}
       <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_ADDS}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.PUBLIC_G_ADDS}`}
           strategy="afterInteractive"
       />
       <Script id="google-ads" strategy="afterInteractive">
@@ -28,7 +28,7 @@ const GoogleTracking = () => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_G_ADDS}');
+              gtag('config', '${process.env.PUBLIC_G_ADDS}');
           `}
       </Script>
 
