@@ -4,7 +4,7 @@ import "./globals.css";
 import Head from "next/head";
 import CustomCursor from './components/CustomCursor';
 import Script from 'next/script';
-import GoogleAnalytics from "./components/GoogleAnalytics";
+import GoogleTracking from "./components/GoogleTracking";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,26 +22,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <Head>
         <link rel="icon" href="/favicon.svg" />
-        <GoogleAnalytics />
       </Head>
       <body className={`${inter.className} relative h-screen`}>
 
-           {/* Google tag (gtag.js) */}
-           <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16902711921"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-16902711921');
-          `}
-        </Script>
+      <GoogleTracking />
 
       <CustomCursor />
-
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-white opacity-50 z-[-1] h-full"></div>
