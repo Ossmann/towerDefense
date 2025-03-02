@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import CustomCursor from './components/CustomCursor';
-import Script from 'next/script';
 import GoogleTracking from "./components/GoogleTracking";
 
 const inter = Inter({ subsets: ["latin"] });
