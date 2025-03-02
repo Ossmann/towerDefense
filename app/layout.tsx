@@ -41,15 +41,6 @@ export default function RootLayout({
             <p className='hover:underline bg-black p-1 px-6 rounded-full'>
               <a href="mailto:Jakobossmann@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
             </p>
-            {/* <p className='hover:underline'>
-              <a href="https://www.youtube.com/@jakobossmann2323" target="_blank">Youtube</a>
-            </p>
-            <p className='hover:underline'>
-              <a href="https://github.com/Ossmann" target="_blank">Github</a>
-            </p>
-            <p className='hover:underline'>
-              <a href="https://www.linkedin.com/in/jakobossmann/" target="_blank">Linkedin</a>
-            </p> */}
           </div>
         </footer>
 

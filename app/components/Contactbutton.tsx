@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { gtag_report_conversion } from '../utils/gtag';
 
 export default function GetInTouch() {
     const [showToast, setShowToast] = useState(false);
@@ -10,6 +11,7 @@ export default function GetInTouch() {
             await navigator.clipboard.writeText(email);
             setShowToast(true);
             setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
+            gtag_report_conversion(); // Call the google conversion tracking function
         } catch (err) {
             console.error('Failed to copy email:', err);
         }

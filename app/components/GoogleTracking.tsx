@@ -1,10 +1,11 @@
-// components/GoogleAnalytics.tsx
+// components/GoogleTracking.tsx
+
 import Script from 'next/script';
 
 const GoogleTracking = () => {
   return (
     <>
-    {/* Analytics */}
+      {/* Google Analytics */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.PUBLIC_GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
@@ -18,20 +19,19 @@ const GoogleTracking = () => {
         `}
       </Script>
 
-      {/* Google Adds */}
+      {/* Google Ads */}
       <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.PUBLIC_G_ADDS}`}
-          strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.PUBLIC_G_ADDS}`}
+        strategy="afterInteractive"
       />
       <Script id="google-ads" strategy="afterInteractive">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.PUBLIC_G_ADDS}');
-          `}
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.PUBLIC_G_ADDS}');
+        `}
       </Script>
-
     </>
   );
 };
