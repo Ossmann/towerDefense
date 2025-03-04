@@ -39,7 +39,7 @@ export default function RootLayout({
         <footer className="fixed bottom-0 left-0 w-full py-3 z-20">
           <div className="container mx-auto px-4 flex space-x-4 p-2 pl-12 font-semibold">
             <p className='hover:underline bg-black p-1 px-6 rounded-full'>
-              <a href="mailto:Jakobossmann@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+              <a href="mailto:office@softwaresuccess.com.au" target="_blank" rel="noopener noreferrer">Email</a>
             </p>
           </div>
         </footer>
