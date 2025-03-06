@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import GetInTouch from './Contactbutton';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react';
 
@@ -44,9 +43,7 @@ const MobileNav = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="px-3 py-2">
-              <GetInTouch />
-            </div>
+
           </div>
         )}
       </div>

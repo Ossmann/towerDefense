@@ -1,5 +1,6 @@
-import Navbar from './components/Topbar';
-import MobileNav from './components/MobileNav';
+import Navbar from './components/Topbar/Topbar';
+import MobileNav from './components/Topbar/MobileNav';
+import IframeEmbed from './components/Iframe';
 
 export default async function Home() {
 
@@ -15,6 +16,10 @@ export default async function Home() {
       </div>
 
       <div className='text-black text-4xl mt-20'> Sport Games Free</div>
+
+      <div>
+        <IframeEmbed />
+      </div>
   
       {/* Empty bottom space */}
       <div className='p-8'></div>

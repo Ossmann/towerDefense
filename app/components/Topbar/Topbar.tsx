@@ -2,8 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import GetInTouch from './Contactbutton';
-import Logo from '../../public/SoftwareSuccess_Logo_No_Claim.svg'
+import Logo from '../../../public/SoftwareSuccess_Logo_No_Claim.svg'
 import Image from 'next/image';
 
 export default function Topbar() {
@@ -28,7 +27,6 @@ export default function Topbar() {
 
         <div className='flex items-center'>
           <div className='flex space-x-4 items-center'>
-            <GetInTouch />
             {links.map((link, index) => (
               <div className='px-4 hover:underline whitespace-nowrap' key={index}>
                 <Link className={`link ${pathname === link.name ? 'underline' : ''}`} href={link.href}>
