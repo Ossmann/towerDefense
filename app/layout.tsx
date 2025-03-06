@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import CustomCursor from './components/CustomCursor';
 import GoogleTracking from "./components/GoogleTracking";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,8 +24,6 @@ export default function RootLayout({
       <body className={`${inter.className} relative h-screen`}>
 
       <GoogleTracking />
-
-      <CustomCursor />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-white opacity-50 z-[-1] h-full"></div>

@@ -1,7 +1,4 @@
 import Navbar from './components/Topbar';
-import portfolioData from './data/portfolio.json';
-import IntroSection from './components/IntroSection';
-import PortfolioSection from './components/PortfolioSection';
 import MobileNav from './components/MobileNav';
 
 export default async function Home() {
@@ -17,15 +14,8 @@ export default async function Home() {
         <MobileNav />
       </div>
 
-      <div className=' pt-12 md:pt-20 section-intro'>
-        <IntroSection />
-      </div>
-
-      {/* Dynamic Portfolio Sections */}
-      {portfolioData.projects.map((project, index) => (
-        <PortfolioSection key={project.id} project={project} index={index} />
-      ))}
-
+      <div className='text-black text-4xl mt-20'> Sport Games Free</div>
+  
       {/* Empty bottom space */}
       <div className='p-8'></div>
     </div>
