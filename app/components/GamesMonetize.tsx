@@ -74,14 +74,24 @@ function GamesGrid() {
             key={game.id} 
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="relative h-48 w-full">
+            <div className="relative w-full h-48">
+              {/* Option 1: Using Next.js Image with fill */}
               <Image
                 src={game.thumb}
                 alt={game.title}
-                width={512}
-                height={384}
-                className="transition-transform duration-300 hover:scale-105 object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: 'cover' }}
+                className="transition-transform duration-300 hover:scale-105"
               />
+              
+              {/* Option 2: Using regular img tag as fallback */}
+              {/* Uncomment this and comment out the Image component above if issues persist */}
+              {/* <img
+                src={game.thumb}
+                alt={game.title}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              /> */}
             </div>
             
             <div className="p-4">
