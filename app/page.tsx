@@ -1,6 +1,6 @@
 import Navbar from './components/Topbar/Topbar';
 import MobileNav from './components/Topbar/MobileNav';
-import IframeEmbed from './components/Iframe';
+import Games from './components/Games';
 
 export default async function Home() {
 
@@ -15,10 +15,8 @@ export default async function Home() {
         <MobileNav />
       </div>
 
-      <div className='text-black text-4xl mt-20'> Sport Games Free</div>
-
-      <div>
-        <IframeEmbed />
+      <div className='pt-20'>
+      <Games />
       </div>
   
       {/* Empty bottom space */}
