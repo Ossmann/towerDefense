@@ -7,8 +7,8 @@ import GoogleTracking from "./components/GoogleTracking";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Software Success",
-  description: "Real-time agile software devlopment agency in Australia",
+  title: "Sport Games Free",
+  description: "Free web-based sports games",
 };
 
 export default function RootLayout({
