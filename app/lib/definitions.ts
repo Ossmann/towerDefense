@@ -19,3 +19,15 @@ export type Game = {
     tags: string[];
   }
   
+  export type GameMonetize = {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    thumb: string;
+    width: string;
+    height: string;
+    instructions: string;
+    url: string;
+    tags: string;
+  }

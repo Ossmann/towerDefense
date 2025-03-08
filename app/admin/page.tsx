@@ -1,6 +1,7 @@
 import Navbar from '../components/Topbar/Topbar';
 import FetchGamesButton from './FetchGamesButton';
 import { fetchGame } from '../lib/data_fetch';
+import FetchGamesMonetize from './FetchGamesMonetize';
 import { Game } from '../lib/definitions';
 
 export default async function Admin() {
@@ -14,9 +15,15 @@ export default async function Admin() {
         </div>
   
         {/* Trigger to get all the games from Games Database into the Neon Database */}
-        <div className='p-60'>
+        {/* <div className='p-60'>
         <FetchGamesButton />
+        </div> */}
+
+        {/* Fetch from GameMonetize and Upload into the Neon DB */}
+        <div className='p-60'>
+        <FetchGamesMonetize />
         </div>
+
 
         {/* //Test fetching a game from the neon Database */}
         {/* <div className='p-4'>

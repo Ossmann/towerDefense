@@ -127,6 +127,6 @@ function GamesGrid() {
 }
 
 // Page component
-export default function GamesMonetize() {
+export default function Games() {
   return <GamesGrid />;
 }
