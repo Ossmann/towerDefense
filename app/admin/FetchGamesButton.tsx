@@ -2,53 +2,33 @@
 'use client';
 
 import { useState } from 'react';
+import { Game } from '../lib/definitions';
+import { insertGame } from '../lib/data_submit';
+
+const newGame: Partial<Game> = {
+  title: "TestPushGame",
+  namespace: "test",
+  description: "A test game",
+};
 
 export default function FetchGamesButton() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [result, setResult] = useState<{ success?: boolean; totalGames?: number; error?: any } | null>(null);
+  const [status, setStatus] = useState<string>('');
 
-  const handleFetchGames = async () => {
-    if (isLoading) return;
-    
-    setIsLoading(true);
-    setResult(null);
-    
+  const handleInsertGame = async () => {
     try {
-      const response = await fetch('/api/fetch-games', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      const data = await response.json();
-      setResult(data);
+      const newGameId = await insertGame(newGame);
+      setStatus(`New game inserted with ID: ${newGameId}`);
+      console.log("New game inserted with ID:", newGameId);
     } catch (error) {
-      setResult({ success: false, error: 'Failed to fetch games' });
-    } finally {
-      setIsLoading(false);
+      setStatus('Failed to insert game');
+      console.error("Failed to insert game:", error);
     }
   };
 
   return (
-    <div className="space-y-4">
-      <button
-        onClick={handleFetchGames}
-        disabled={isLoading}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
-      >
-        {isLoading ? 'Fetching Games...' : '2Fetch All Games'}
-      </button>
-      
-      {result && (
-        <div className="mt-4 p-4 border rounded">
-          {result.success ? (
-            <p className="text-green-600">Successfully processed {result.totalGames} games!</p>
-          ) : (
-            <p className="text-red-600">Error: {JSON.stringify(result.error)}</p>
-          )}
-        </div>
-      )}
+    <div className=''>
+      <button className='bg-blue-500 p-4 rounded-lg shadow-md text-white' onClick={handleInsertGame}>Insert New Game</button>
+      {status && <p>{status}</p>}
     </div>
   );
 }

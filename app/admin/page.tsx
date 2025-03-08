@@ -1,6 +1,6 @@
 import Navbar from '../components/Topbar/Topbar';
 import FetchGamesButton from './FetchGamesButton';
-import { fetchGame } from '../lib/data';
+import { fetchGame } from '../lib/data_fetch';
 import { Game } from '../lib/definitions';
 
 export default async function Admin() {
@@ -13,11 +13,13 @@ export default async function Admin() {
           <Navbar />
         </div>
   
+        {/* Trigger to get all the games from Games Database into the Neon Database */}
         <div className='p-60'>
         <FetchGamesButton />
         </div>
 
-        <div className='p-4'>
+        {/* //Test fetching a game from the neon Database */}
+        {/* <div className='p-4'>
         <h2 className="text-2xl font-bold mb-4">Game List</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {games.map((game: Game) => (
@@ -33,7 +35,7 @@ export default async function Admin() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
     
         {/* Empty bottom space */}
         <div className='p-8'></div>
