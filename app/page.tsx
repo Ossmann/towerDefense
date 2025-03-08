@@ -1,6 +1,6 @@
 import Navbar from './components/Topbar/Topbar';
 import MobileNav from './components/Topbar/MobileNav';
-import Games from './components/Games';
+import GamesGrid from './components/GamesGrid';
 
 export default async function Home() {
 
@@ -16,7 +16,7 @@ export default async function Home() {
       </div>
 
       <div className='pt-20'>
-      <Games />
+      <GamesGrid />
       </div>
   
       {/* Empty bottom space */}

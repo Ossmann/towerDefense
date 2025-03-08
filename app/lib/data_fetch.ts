@@ -1,3 +1,5 @@
+'use server';
+
 import postgres from 'postgres';
 import { Game } from './definitions';
 
@@ -6,7 +8,7 @@ if (!process.env.DATABASE_URL) {
 }
 const sql = postgres(process.env.DATABASE_URL, { ssl: 'verify-full' });
 
-export async function fetchGame() {
+export async function fetchGames() {
   try {
     console.log('Attempting to fetch games from database...');
     const data = await sql<Game[]>`SELECT * FROM games`;
