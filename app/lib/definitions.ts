@@ -18,6 +18,21 @@ export type Game = {
     instructions: string;
     tags: string[];
   }
+
+  export type FetchedGame = {
+    id: number;
+    title: string;
+    description: string;
+    category: string[];
+    orientation: string;
+    width: number;
+    height: number;
+    banner_image: string;
+    image: string;
+    url: string;
+    instructions: string;
+    tags: string[];
+  }
   
   export type GameMonetize = {
     id: string;

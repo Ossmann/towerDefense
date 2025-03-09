@@ -100,12 +100,10 @@ function GamesGrid() {
                 </div>
                 
                 <Link 
-                    href={game.url} 
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  href={`/games/${game.id}`}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
-                    Play Now
+                  Play Now
                 </Link>
                 </div>
 

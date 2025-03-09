@@ -16,7 +16,7 @@ const MobileNav = () => {
     <nav className="bg-white/80 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className='text-gray-700 text-opacity-80'>Software Success</Link>
+          <Link href="/" className='text-gray-700 text-opacity-80'>Sport Games Free</Link>
           <div className="flex-1 flex items-center justify-end">
             <button className="p-2" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? (
