@@ -9,8 +9,9 @@ async function getGameDetails(id: string): Promise<FetchedGame> {
   return await fetchGame(id); // Directly return the result
 }
 
-export default async function GamePage({ params }: { params: { id: string } }) {
-  const game = await getGameDetails(params.id);
+export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; // Destructure after awaiting
+  const game = await getGameDetails(id);
   const gameWidth = game.width.toString();
   const gameHeight = game.height.toString();
 

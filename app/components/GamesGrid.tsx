@@ -57,7 +57,7 @@ function GamesGrid() {
             key={game.id} 
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="relative h-48 w-full">
+            <div className="relative w-full">
               <Image
                 src={game.banner_image}
                 alt={game.title}
