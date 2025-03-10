@@ -11,6 +11,8 @@ async function getGameDetails(id: string): Promise<FetchedGame> {
 
 export default async function GamePage({ params }: { params: { id: string } }) {
   const game = await getGameDetails(params.id);
+  const gameWidth = game.width.toString();
+  const gameHeight = game.height.toString();
 
   return (
     <div>
@@ -24,9 +26,23 @@ export default async function GamePage({ params }: { params: { id: string } }) {
         <h1 className="text-3xl font-bold text-gray-800 mb-4">{game.title}</h1>
         <p className="hidden md-block text-gray-700 text-sm mb-4">{game.description}</p>
         <div className="flex justify-center items-center mb-4">
-          <div className="aspect-w-16 aspect-h-9 w-full max-w-3xl">
-            <IframeEmbed url={game.url} width={game.width} height={game.height} />
-          </div>
+
+        <div className="hidden md:block">
+          <IframeEmbed 
+            url={game.url} 
+            width={gameWidth}
+            height={gameHeight} 
+          />
+        </div>
+        {/* //Mobile iframe for the game */}
+        <div className="block md:hidden w-full max-w-screen overflow-hidden">
+          <IframeEmbed 
+            url={game.url} 
+            width="100%" 
+            height="100%" 
+            className="w-full aspect-video" 
+          />
+        </div>
         </div>
         <p className="text-sm text-gray-600 mb-2">
         {game.category.map((category, index) => (
