@@ -25,7 +25,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       </div>
       <div className="mx-auto p-12 bg-gray-100 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">{game.title}</h1>
-        <p className="hidden md-block text-gray-700 text-sm mb-4">{game.description}</p>
         <div className="flex justify-center items-center mb-4">
 
         <div className="hidden md:block">
@@ -55,7 +54,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             </span>
           ))}
         </p>
-        <p className="text-sm text-gray-600 mb-4">
+        {/* <p className="text-sm text-gray-600 mb-4">
           {game.tags.map((tag, index) => (
             <span
               key={index}
@@ -64,10 +63,11 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
               {tag}
             </span>
           ))}
-        </p>
+        </p> */}
         <p className="text-sm text-gray-600 mb-2">
-          <span className="font-semibold">Instructions:</span> {game.instructions}
+          <span className="font-semibold">About {game.title}:</span> 
         </p>
+        <p>{game.description}</p>
       </div>
     </div>
   );
