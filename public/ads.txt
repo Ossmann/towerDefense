@@ -1,4 +1,3 @@
-#Gamepix
 #gpx-property-7771E
 #gpx-last-updated-2024-11-21
 #gpx-reviq
