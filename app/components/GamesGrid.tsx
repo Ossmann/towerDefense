@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Game } from '../lib/definitions';
 import { fetchGames } from '../lib/data_fetch';
+import { Pagination } from './Pagination'
 
 
 // Games Grid Component
@@ -12,14 +13,26 @@ function GamesGrid() {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const [totalGames, setTotalGames] = useState(0); // Total number of games
+  const [gamesPerPage] = useState(20); // Number of games per page
+
+
 
   useEffect(() => {
     const loadGames = async () => {
       try {
         setLoading(true);
-        const data = await fetchGames();
+        const data = await fetchGames(currentPage);
+        
+
+        const totalGames = currentPage*gamesPerPage + 24;
+
         setGames(data);
+        setTotalGames(totalGames);
         setLoading(false);
+
+
       } catch (err) {
         console.error('Error fetching games:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -28,7 +41,7 @@ function GamesGrid() {
     };
   
     loadGames();
-  }, []);
+  }, [currentPage, gamesPerPage]);
 
   if (loading) {
     return (
@@ -111,6 +124,12 @@ function GamesGrid() {
           </div>
         ))}
       </div>
+      <Pagination
+        gamesPerPage={gamesPerPage}
+        totalGames={totalGames}
+        currentPage={currentPage}
+        paginate={setCurrentPage} // Passing setCurrentPage to handle page change
+      />
     </div>
   );
 }

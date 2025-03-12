@@ -9,12 +9,21 @@ if (!process.env.DATABASE_URL) {
 }
 const sql = postgres(process.env.DATABASE_URL, { ssl: 'verify-full' });
 
-// fetch all the games for overview page
-export async function fetchGames() {
+// fetch the games for overview page sorted by quality, 20 at a time
+export async function fetchGames(page: number) {
   try {
     console.log('Attempting to fetch games from database...');
-    const data = await sql<Game[]>`SELECT * FROM games`;
+    
+    // Calculate OFFSET dynamically
+    const offset = (page - 1) * 20;
 
+    // Use parameterized query to avoid SQL injection
+    const data = await sql<Game[]>`
+      SELECT * FROM games
+      ORDER BY quality_score DESC
+      LIMIT 20 OFFSET ${offset};
+    `;
+    
     return data;
   } catch (error) {
     console.error('Database Error:', error);
