@@ -28,14 +28,14 @@ export default function GamesGrid() {
         setLoading(true);
         let data;
         if (searchQuery) {
-          data = await searchGames(searchQuery);
+         data = await searchGames(searchQuery);
         } else {
           data = await fetchGames(currentPage);
-        }
+         }
 
         const totalGames = currentPage * gamesPerPage + 24;
 
-        setGames(data);
+        setGames(data ?? []);
         setTotalGames(totalGames);
         setLoading(false);
       } catch (err) {

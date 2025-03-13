@@ -31,9 +31,22 @@ export async function fetchGames(page: number) {
     if (typeof error === 'object' && error !== null && 'code' in error) {
       console.error('Error code:', error.code);
     }
-    // Log the environment variable (be cautious with sensitive data)
-    console.log('POSTGRES_URL:', process.env.POSTGRES_URL?.replace(/:[^:]*@/, ':****@'));
-    throw new Error(`Failed to fetch Game: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
+}
+
+//get games from the search bar
+export async function searchGames(query: string): Promise<Game[]> {
+  try {
+    const data = await sql<Game[]>`
+      SELECT * FROM games
+      WHERE title ILIKE '%' || ${query} || '%'
+      ORDER BY quality_score DESC;
+    `;
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching games:', error);
+    throw new Error('Failed to fetch games');
   }
 }
 
@@ -56,18 +69,4 @@ export async function fetchGame(id: string): Promise<FetchedGame> {
   }
 }
 
-//get games from the search bar
-export async function searchGames(query: string): Promise<FetchedGame[]> {
-  try {
-    const data = await sql<Game[]>`
-      SELECT * FROM games
-      WHERE title ILIKE '%' || ${query} || '%'
-      ORDER BY quality_score DESC;
-    `;
 
-    return data;
-  } catch (error) {
-    console.error('Error fetching games:', error);
-    throw new Error('Failed to fetch games');
-  }
-}
