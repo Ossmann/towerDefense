@@ -55,3 +55,19 @@ export async function fetchGame(id: string): Promise<FetchedGame> {
     throw new Error('Failed to fetch game');
   }
 }
+
+//get games from the search bar
+export async function searchGames(query: string): Promise<FetchedGame[]> {
+  try {
+    const data = await sql<Game[]>`
+      SELECT * FROM games
+      WHERE title ILIKE '%' || ${query} || '%'
+      ORDER BY quality_score DESC;
+    `;
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching games:', error);
+    throw new Error('Failed to fetch games');
+  }
+}

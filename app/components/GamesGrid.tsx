@@ -5,34 +5,39 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Game } from '../lib/definitions';
 import { fetchGames } from '../lib/data_fetch';
-import { Pagination } from './Pagination'
+import { searchGames } from '../lib/data_fetch';
+import { Pagination } from './Pagination';
+import { SearchBar } from './SearchBar';
+
 
 
 // Games Grid Component
-function GamesGrid() {
+export default function GamesGrid() {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [totalGames, setTotalGames] = useState(0); // Total number of games
   const [gamesPerPage] = useState(20); // Number of games per page
-
+  const [searchQuery, setSearchQuery] = useState('');
 
 
   useEffect(() => {
     const loadGames = async () => {
       try {
         setLoading(true);
-        const data = await fetchGames(currentPage);
-        
+        let data;
+        if (searchQuery) {
+          data = await searchGames(searchQuery);
+        } else {
+          data = await fetchGames(currentPage);
+        }
 
-        const totalGames = currentPage*gamesPerPage + 24;
+        const totalGames = currentPage * gamesPerPage + 24;
 
         setGames(data);
         setTotalGames(totalGames);
         setLoading(false);
-
-
       } catch (err) {
         console.error('Error fetching games:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -41,8 +46,13 @@ function GamesGrid() {
     };
   
     loadGames();
-  }, [currentPage, gamesPerPage]);
+  }, [currentPage, gamesPerPage, searchQuery]);
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+  
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -63,8 +73,13 @@ function GamesGrid() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Sports Games Collection</h1>
-      
+
+      <div>
+        <SearchBar onSearch={handleSearch} />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
         {games?.map((game) => (
           <div 
             key={game.id} 
@@ -113,7 +128,7 @@ function GamesGrid() {
                 </div>
                 
                 <Link 
-                  href={`/games/${game.id}`}
+                  href={`/game/${game.id}`}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Play Now
@@ -134,7 +149,3 @@ function GamesGrid() {
   );
 }
 
-// Page component
-export default function GamesMonetize() {
-  return <GamesGrid />;
-}
