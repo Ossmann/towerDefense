@@ -5,7 +5,8 @@ export default function Home() {
   return (
         <>
       {/* Your page content here */}
-      <Script src="/JavaScript/index.js" strategy="afterInteractive" />
+      <Script src="/js/waypoints.js" strategy="afterInteractive" />
+      <Script src="/js/index.js" strategy="afterInteractive" />
 
     <div>
 
