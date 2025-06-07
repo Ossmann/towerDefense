@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import GoogleTracking from "./components/GoogleTracking";
+// import GoogleTracking from "./components/GoogleTracking";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       </Head>
       <body className={`${inter.className} relative h-screen`}>
 
-      <GoogleTracking />
+      {/* <GoogleTracking /> */}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-white opacity-50 z-[-1] h-full"></div>
