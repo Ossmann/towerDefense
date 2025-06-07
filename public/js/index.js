@@ -21,6 +21,11 @@ image.src = '/img/gameMap.png';
     this.position = position
     this.width = 100;
     this.height = 100;
+    this.waypointIndex = 0; // Index to track the current waypoint
+    this.center = {
+      x: this.position.x + this.width / 2,
+      y: this.position.y + this.height / 2
+    }
   }
 
     draw() {
@@ -31,20 +36,47 @@ image.src = '/img/gameMap.png';
      update() {
         // Update the enemy's position or other properties if needed
         this.draw()
-        this.position.x += 1 // Example movement to the right
+
+        const waypoint = waypoints[this.waypointIndex]; // Assuming you want to use the first waypoint
+        const yDistance = waypoint.y - this.center.y
+        const xDistance = waypoint.x - this.center.x
+        const angle = Math.atan2(yDistance, xDistance);
+        this.position.x += Math.cos(angle)
+        this.position.y += Math.sin(angle);
+        this.center = {
+            x: this.position.x + this.width / 2,
+            y: this.position.y + this.height / 2
+        }
+
+        console.log(Math.round(this.position.x))
+
+        if (
+            Math.round(this.center.x) === Math.round(waypoint.x) && Math.round(this.center.y) === Math.round(waypoint.y)
+            && this.waypointIndex < waypoints.length - 1)
+            {
+            // Move to the next waypoint
+            this.waypointIndex++;
+        }
     }
 }
 
-const enemy = new Enemy({position: { x: 200, y: 400 }});
+const enemies = [];
+for (let i = 1; i < 10; i++) {
+    const xOffset = i * 150
+    enemies.push(new Enemy({
+    position: { x: waypoints[0].x - xOffset, y: waypoints[0].y + i * 50 }}));
+  }
+
+
 
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
 
   c.drawImage(image, 0, 0)
-  enemy.update(); // Update and draw the enemy
-
-  
+  enemies.forEach(enemy => {
+    enemy.update()
+  })
 }
 
 animate(); // Start the animation
