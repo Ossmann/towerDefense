@@ -65,8 +65,31 @@ function animate() {
     tile.update(mouse)
   })
 
-  buildings.forEach(building => building.draw())
+  buildings.forEach((building) => {
+    building.update()
+    building.target = null
+    const validEnemies = enemies.filter(enemy => { // enemies within the range of a building radius
+        const xDifference = enemy.center.x - building.center.x
+        const yDifference = enemy.center.y - building.center.y
+        const distance = Math.hypot(xDifference, yDifference)
+        return distance < enemy.radius + building.radius
+    })
+    building.target = validEnemies[0] //give us the first enemy within the target radius
 
+    // for loop to remove projectiles from the array from the back
+    for (let i = building.projectiles.length - 1; i >= 0; i--) {
+        const projectile = building.projectiles[i]
+    
+        projectile.update()
+
+        const xDifference = projectile.enemy.center.x - projectile.position.x
+        const yDifference = projectile.enemy.center.y - projectile.position.y
+        const distance = Math.hypot(xDifference, yDifference)
+        if (distance < projectile.enemy.radius + projectile.radius) {
+            building.projectiles.splice(i, 1) 
+        }
+    }
+})
 }
 
 const mouse = {
@@ -102,7 +125,6 @@ window.addEventListener('mousemove', (event) => {
                 break
             }
     }
-    console.log(activeTile)
  })
 
 
