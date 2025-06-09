@@ -7,9 +7,17 @@ export default function Home() {
   return (
         <>
       {/* Your page content here */}
-      <Script src="/js/placement.js" strategy="afterInteractive" />
+      <Script src="/js/classes/sprite.js" strategy="afterInteractive" />
+
+      <Script src="/js/placement_data.js" strategy="afterInteractive" />
       <Script src="/js/waypoints.js" strategy="afterInteractive" />
-      <Script src="/js/classes.js" strategy="afterInteractive" />
+      
+      <Script src="/js/classes/building.js" strategy="afterInteractive" />
+      <Script src="/js/classes/enemy.js" strategy="afterInteractive" />
+      <Script src="/js/classes/placementTile.js" strategy="afterInteractive" />
+      <Script src="/js/classes/projectile.js" strategy="afterInteractive" />
+
+
       <Script src="/js/index.js" strategy="afterInteractive" />
 
     <div className='relative'>
