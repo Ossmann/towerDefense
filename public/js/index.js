@@ -59,6 +59,7 @@ const buildings = []
 let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
+let coins = 100
 spawnEnemies(enemyCount)
 
 let animationId;
@@ -80,8 +81,8 @@ function animate() {
     //remove enemy if of the map
     if (enemy.position.x > canvas.width) {
         hearts -= 1
-        console.log(hearts)
         enemies.splice(i, 1)
+        document.querySelector('#hearts').innerHTML = hearts
 
         //remove lives
         if (hearts === 0) {
@@ -133,7 +134,11 @@ function animate() {
                     return projectile.enemy === enemy         //we store in enemyindex the current enemy, if it is the one we are looping over
                 })
 
-                if (enemyIndex > -1) enemies.splice(enemyIndex, 1) //remove enemy, if > -1 so if enemy is already dead when hit it doesnt remove other enemy
+                if (enemyIndex > -1) {
+                    enemies.splice(enemyIndex, 1)                      //remove enemy, if > -1 so if enemy is already dead when hit it doesnt remove other enemy
+                    coins += 25
+                    document.querySelector('#coins').innerHTML = coins  //earn coins by killing
+                }
             }
 
             building.projectiles.splice(i, 1) 
@@ -148,7 +153,9 @@ const mouse = {
 }
 
 canvas.addEventListener('click', (event) => {
-    if (activeTile && !activeTile.isOccupied) {
+    if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) { //only let buildings be built in active tile and if enought coins
+        coins -= 50                                                //substract building costs
+        document.querySelector('#coins').innerHTML = coins
         buildings.push(new Building({
             position: {
                 x: activeTile.position.x,
