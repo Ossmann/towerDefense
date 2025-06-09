@@ -58,18 +58,46 @@ spawnEnemies(3)
 const buildings = []
 let activeTile = undefined
 let enemyCount = 3
+let hearts = 10
 spawnEnemies(enemyCount)
+
+let animationId;
+let isGameOver = false;
 
 // Animation loop
 function animate() {
-  requestAnimationFrame(animate);
+    if (isGameOver) return; // Stop the loop if game is over
+
+    const animationId = requestAnimationFrame(animate)
+
 
   c.drawImage(image, 0, 0)
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i]
     enemy.update()
+
+    //remove enemy if of the map
+    if (enemy.position.x > canvas.width) {
+        hearts -= 1
+        console.log(hearts)
+        enemies.splice(i, 1)
+
+        //remove lives
+        if (hearts === 0) {
+            console.log('game over')
+            isGameOver = true;
+            const gameOverDiv = document.querySelector('#gameOver');
+            gameOverDiv.classList.remove('hidden'); //change css of GameOver text to reveal
+        }
+    }
   }
+
+    //tracking total amount of enemies
+    if (enemies.length === 0) {
+        enemyCount += 2
+        spawnEnemies(enemyCount)
+    }
 
   placementTiles.forEach((tile) => {
     tile.update(mouse)
@@ -108,13 +136,6 @@ function animate() {
                 if (enemyIndex > -1) enemies.splice(enemyIndex, 1) //remove enemy, if > -1 so if enemy is already dead when hit it doesnt remove other enemy
             }
 
-            //tracking total amount of enemies
-            if (enemies.length === 0) {
-                enemyCount += 2
-                spawnEnemies(enemyCount)
-            }
-
-            console.log(projectile.enemy.health)
             building.projectiles.splice(i, 1) 
         }
     }

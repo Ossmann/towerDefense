@@ -39,6 +39,10 @@ class Enemy {
     }
     this.radius = 50
     this.health = 100
+    this.velocity = {
+        x: 0,
+        y: 0
+    }
   }
 
     draw() {
@@ -65,17 +69,24 @@ class Enemy {
         const yDistance = waypoint.y - this.center.y
         const xDistance = waypoint.x - this.center.x
         const angle = Math.atan2(yDistance, xDistance);
-        this.position.x += Math.cos(angle)
-        this.position.y += Math.sin(angle);
+        //speed of enemies
+        const speed = 4
+        this.velocity.x = Math.cos(angle) * speed
+        this.velocity.y = Math.sin(angle) * speed
+        
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+
         this.center = {
             x: this.position.x + this.width / 2,
             y: this.position.y + this.height / 2
         }
 
-
+        // (change direction)if enemy is within a distance is within a waypoint, we shift to the next waypoint
         if (
-            Math.round(this.center.x) === Math.round(waypoint.x) && Math.round(this.center.y) === Math.round(waypoint.y)
-            && this.waypointIndex < waypoints.length - 1)
+            Math.abs(Math.round(this.center.x) - Math.round(waypoint.x)) < Math.abs(this.velocity.x) && 
+            Math.abs(Math.round(this.center.y) - Math.round(waypoint.y)) < Math.abs(this.velocity.y) &&
+            this.waypointIndex < waypoints.length - 1)
             {
             // Move to the next waypoint
             this.waypointIndex++;
@@ -103,7 +114,6 @@ class Projectile {
     }
 
     update() {
-        console.log('draw projectile called')
         this.draw()
 
         const angle = Math.atan2(

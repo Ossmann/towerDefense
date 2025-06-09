@@ -10,11 +10,12 @@ export default function Home() {
       <Script src="/js/classes.js" strategy="afterInteractive" />
       <Script src="/js/index.js" strategy="afterInteractive" />
 
-    <div>
+    <div className='relative'>
 
 
 
         <canvas></canvas>
+        <div id="gameOver" className='absolute inset-0 flex items-center justify-center text-8xl hidden'>Game Over</div>
 
 
 
