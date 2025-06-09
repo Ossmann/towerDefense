@@ -1,5 +1,6 @@
+
 class Sprite {
-    constructor({ position = { x: 0, y: 0}, imageSrc, frames = {max : 1} }) {
+    constructor({ position = { x: 0, y: 0}, imageSrc, frames = {max : 1}, offset = {x: 0, y: 0} }) {
         this.position = position
         this.image = new Image()
         this.image.src = imageSrc
@@ -9,6 +10,7 @@ class Sprite {
             elapsed: 0,   //slow animation
             hold: 20 /// slow animation
         }
+        this.offset = offset
     }
 
     draw() {
@@ -21,18 +23,21 @@ class Sprite {
             width: cropWidth,
             height: this.image.height
         }
+        //draw the image on the screen
         c.drawImage(
             this.image, 
             crop.position.x, 
             crop.position.y, 
             crop.width, 
             crop.height,
-            this.position.x,
-            this.position.y,
+            this.position.x + this.offset.x,
+            this.position.y + this.offset.y,
             crop.width,
             crop.height
         )
+    }
 
+        update(){
         // animation, move through the frames of our sprite,
         this.frames.elapsed++
         if (this.frames.elapsed % this.frames.hold === 0) {  //elapsed and hold to slow animation

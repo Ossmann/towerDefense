@@ -38,6 +38,7 @@ class Enemy extends Sprite {
      update() {
         // Update the enemy's position or other properties if needed
         this.draw()
+        super.update()
 
         const waypoint = waypoints[this.waypointIndex]; // Assuming you want to use the first waypoint
         const yDistance = waypoint.y - this.center.y
