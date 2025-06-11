@@ -60,6 +60,7 @@ let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
 let coins = 100
+const explosions = []
 spawnEnemies(enemyCount)
 
 let animationId;
@@ -93,6 +94,19 @@ function animate() {
         }
     }
   }
+
+  //loop through explosions to render them
+  for (let i = 0; i < explosions.length; i+= 20) {
+    const explosion = explosions[i]
+    explosion.draw()
+    explosion.update()
+
+    //after an explosion happend, it will be removed from the array so we only have one
+    if (explosion.frames.current >= explosion.frames.max - 1) {
+        explosions.splice(i, 1)
+    }
+  }
+
 
     //tracking total amount of enemies
     if (enemies.length === 0) {
@@ -141,7 +155,15 @@ function animate() {
                 }
             }
 
-            building.projectiles.splice(i, 1) 
+            explosions.push(new Sprite({
+            position: { x: projectile.position.x, y: projectile.position.y}, 
+            imageSrc: 'img/explosion.png', 
+            frames: {max : 4}, 
+            offset: {x: 0, y: 0} 
+    })
+        )
+        // explosions
+            building.projectiles.splice(i, 1) //projectile removed from building
         }
     }
 })

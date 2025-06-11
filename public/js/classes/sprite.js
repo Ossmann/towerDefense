@@ -1,6 +1,11 @@
 
 class Sprite {
-    constructor({ position = { x: 0, y: 0}, imageSrc, frames = {max : 1}, offset = {x: 0, y: 0} }) {
+    constructor({ 
+        position = { x: 0, y: 0}, 
+        imageSrc, 
+        frames = {max : 1}, 
+        offset = {x: 0, y: 0} 
+    }) {
         this.position = position
         this.image = new Image()
         this.image.src = imageSrc
@@ -42,7 +47,7 @@ class Sprite {
         this.frames.elapsed++
         if (this.frames.elapsed % this.frames.hold === 0) {  //elapsed and hold to slow animation
             this.frames.current++
-            if(this.frames.current >= this.frames.max - 1) {
+            if(this.frames.current >= this.frames.max) {
                 this.frames.current = 0 //loop animation
                 
             }
