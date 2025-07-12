@@ -48,7 +48,7 @@ function spawnEnemies(spawnCount) {
     // spawn new enemies when other number of spawnCount are killed
     for (let i = 1; i < spawnCount + 1; i++) {
     const xOffset = i * 150
-    enemies.push(new Enemy({
+    enemies.push(new Skeleton({
     position: { x: waypoints[0].x - xOffset, y: waypoints[0].y + i * 50 }}));
   }
 }
