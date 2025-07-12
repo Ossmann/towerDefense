@@ -41,16 +41,23 @@ image.onload = () => {
 };
 image.src = '/img/gameMap.png';
 
-
 const enemies = []
+
+//needed to alternate between enemy types
+let spawnRound = 1;
 
 function spawnEnemies(spawnCount) {
     // spawn new enemies when other number of spawnCount are killed
     for (let i = 1; i < spawnCount + 1; i++) {
-    const xOffset = i * 150
-    enemies.push(new Skeleton({
-    position: { x: waypoints[0].x - xOffset, y: waypoints[0].y + i * 50 }}));
-  }
+        const xOffset = i * 150;
+        const position = { x: waypoints[0].x - xOffset, y: waypoints[0].y + i * 50 };
+
+          if (spawnRound % 2 === 0) {
+                enemies.push(new Orc({ position }));
+            } else {
+                enemies.push(new Skeleton({ position }));
+            }
+    }
 }
 
 spawnEnemies(3)
@@ -110,7 +117,8 @@ function animate() {
 
     //tracking total amount of enemies
     if (enemies.length === 0) {
-        enemyCount += 2
+        enemyCount += 3
+        spawnRound++; 
         spawnEnemies(enemyCount)
     }
 

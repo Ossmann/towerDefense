@@ -101,6 +101,23 @@ class Skeleton extends Enemy {
       frames: { max: 10 },
       width: 140,
       height: 100,
+      speed: 3,
+      health: 100,
+    });
+  }
+
+  // Optionally override update() or draw() here if needed
+}
+
+// Define Skeleton class extending Enemy
+class Orc extends Enemy {
+  constructor(options) {
+    super({
+      ...options,
+      imageSrc: 'img/orc.png',
+      frames: { max: 7 },
+      width: 100,
+      height: 100,
       speed: 1,
       health: 100,
     });
