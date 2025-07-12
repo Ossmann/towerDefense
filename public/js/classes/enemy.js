@@ -3,12 +3,12 @@ class Enemy extends Sprite {
   constructor({position = { x: 0, y: 0}}) {
     super({
       position, 
-      imageSrc: 'img/orc.png', 
+      imageSrc: 'img/Skeleton_01_White_Walk.png', 
       frames: {
-        max: 7
+        max: 10
     }})
     this.position = position
-    this.width = 100
+    this.width = 140
     this.height = 100
     this.waypointIndex = 0 // Index to track the current waypoint
     this.center = {
@@ -24,7 +24,28 @@ class Enemy extends Sprite {
   }
 
     draw() {
-    super.draw()
+
+      const cropWidth = this.image.width / this.frames.max;
+      const crop = {
+        position: {
+            x: cropWidth * this.frames.current,
+            y: 0
+        },
+        width: cropWidth,
+        height: this.image.height
+      };
+        // Draw the sprite scaled to this.width and this.height
+    c.drawImage(
+        this.image,
+        crop.position.x,
+        crop.position.y,
+        crop.width,
+        crop.height,
+        this.position.x + this.offset.x,
+        this.position.y + this.offset.y,
+        this.width,    // use this.width here to scale
+        this.height    // use this.height here to scale
+    );
 
     //health bar
     //red under green is revealed when enemy gets hit
